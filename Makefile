@@ -102,9 +102,9 @@ ABI = lp64d
 CODEMODEL = medany
 
 ifeq ($(USE_HTIF), 1)
-LD_SCRIPT = $(BSP_DIR)$(CHIP)/$(CHIP)_htif.ld
+LD_SCRIPT = $(USR_DIR)examplechip_htif_large.ld
 else
-LD_SCRIPT = $(BSP_DIR)$(CHIP)/$(CHIP).ld
+LD_SCRIPT = $(USR_DIR)examplechip_large.ld
 endif
 
 # -mcmodel=medany -Wl,--start-group -lc_nano -lgloss_htif -Wl,--end-group -lgcc -static -nostartfiles -dT htif.ld
@@ -131,6 +131,7 @@ ifdef STACK_SIZE
 LFLAGS += -Xlinker --defsym=__stack_size=$(STACK_SIZE)
 endif
 LFLAGS += -T $(LD_SCRIPT)
+LFLAGS_EXTRA = -lm
 
 
 #################################
@@ -154,7 +155,7 @@ $(TARGET_VERILOG): $(TARGET_ELF)
 
 $(TARGET_ELF): $(OBJECTS)
 	@echo "[LD] linking $@"
-	@$(CC) $(CFLAGS) $(LFLAGS) $^ -o $@
+	@$(CC) $(CFLAGS) $(LFLAGS) $^ -o $@ $(LFLAGS_EXTRA)
 	$(SIZE) $(TARGET_ELF)
 
 $(A_OBJECTS): $(BUILD_DIR)%.o: %.S
