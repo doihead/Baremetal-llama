@@ -970,11 +970,11 @@ int main(int argc, char **argv) {
   // HAL_GPIO_init(GPIOA, &GPIO_init_config, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);
 
   // set up UART registers
-  // UART_InitTypeDef UART_init_config;
-  // UART_init_config.baudrate = 115200;
-  // UART_init_config.mode = UART_MODE_TX_RX;
-  // UART_init_config.stopbits = UART_STOPBITS_2;
-  // HAL_UART_init(UART0, &UART_init_config);
+  UART_InitTypeDef UART_init_config;
+  UART_init_config.baudrate = 115200;
+  UART_init_config.mode = UART_MODE_TX_RX;
+  UART_init_config.stopbits = UART_STOPBITS_2;
+  HAL_UART_init(UART0, &UART_init_config);
 
       // default parameters
     float temperature = 0.2f;   // 0.0 = greedy deterministic. 1.0 = original. don't set higher
@@ -1017,7 +1017,6 @@ int main(int argc, char **argv) {
     uint64_t mhartid = READ_CSR("mhartid");
     printf("Hello world from hart %d: %d\n", mhartid, counter);
     counter += 1;
-    return 0;
     /* USER CODE END WHILE */
   }
   /* USER CODE BEGIN 3 */
