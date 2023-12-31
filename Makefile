@@ -41,9 +41,9 @@ BUILD_DIR = build/
 #################################
 
 
-ifeq ($(USE_HTIF), 1)
-LIBRARIES += htif
-endif
+# ifeq ($(USE_HTIF), 1)
+# LIBRARIES += htif
+# endif
 
 # USR sources
 INCLUDES   = -I$(INC_DIR)
