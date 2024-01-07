@@ -146,6 +146,8 @@ SECTIONS {
     KEEP(*(.fini_array EXCLUDE_FILE(*crtbegin.o *crtbegin?.o *crtend.o *crtend?.o ) .dtors))
     PROVIDE_HIDDEN(__fini_array_end = .);
   }> DRAM
+  
+  PROVIDE(__data_load_start = LOADADDR(.data));
 
   /* Section for initialized small data */
   .sdata : {

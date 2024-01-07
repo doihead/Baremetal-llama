@@ -841,7 +841,7 @@ void generate(Transformer *transformer, Tokenizer *tokenizer, Sampler *sampler, 
     // report achieved tok/s (pos-1 because the timer starts after first iteration)
     if (pos > 1) {
         long end = time_in_ms();
-        printf("achieved ktok/s: %d\n", (pos-1) / (double)(end-start));
+        printf("achieved ktok/s: %d\n", (pos-1) / (end-start));
     }
 
     free(prompt_tokens);

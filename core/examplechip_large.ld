@@ -143,6 +143,8 @@ SECTIONS {
     PROVIDE_HIDDEN(__fini_array_end = .);
   }> DRAM
 
+  PROVIDE(__data_load_start = LOADADDR(.data));
+
   /* Section for initialized small data */
   .sdata : {
     PROVIDE(__global_pointer$ = . + 0x800);
