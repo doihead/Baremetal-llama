@@ -97,9 +97,9 @@ TARGET_VERILOG = $(BUILD_DIR)$(TARGET).out
 #################################
 
 # MCU Settings
-ARCH = rv64imafdc
-ABI = lp64d
-CODEMODEL = medany
+ARCH ?= rv64imafdc
+ABI ?= lp64d
+CODEMODEL ?= medany
 
 ifeq ($(USE_HTIF), 1)
 LD_SCRIPT = $(USR_DIR)examplechip_htif_large.ld
