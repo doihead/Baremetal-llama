@@ -6,7 +6,7 @@ extern "C" {
 #endif
 
 
-#include "bearlyml23.h"
+#include "examplechip.h"
 
 /**
  * This section controls which peripheral device is included in the application program.
